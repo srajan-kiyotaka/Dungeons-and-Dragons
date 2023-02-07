@@ -9,10 +9,11 @@ The game can be implemented in Python by creating classes for characters, NPCs, 
 By using Python, the game can be made interactive, with player choices and actions affecting the outcome of the story. The game can also be made accessible through a web interface, allowing players to connect and play from anywhere in the world.
 
 # About The Game
-There are 4 different modes of the game available:
+There are 5 different modes of the game available:
 - Easy
 - Medium
 - Hard
 - Extreme
+- Game with Visuals
 
 ### I also used the Python Rich library to make it more interesting! 
