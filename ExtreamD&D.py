@@ -62,4 +62,37 @@ def generate_enemy():
 
 def main():
     player = Character("Player", "Warrior", 100, 50, 20, 10, 15)
-    player.inventory = ["health potion", "mana potion", "mana
+    player.inventory = ["health potion", "mana potion", "mana potion"]
+    enemy = generate_enemy()
+    print("An enemy has appeared!")
+    pprint(enemy)
+
+    while player.hp > 0 and enemy.hp > 0:
+        print(f"\n{player.name} has {player.hp} hit points and {player.mana} mana.")
+        print(f"{enemy.name} has {enemy.hp} hit points.")
+        print("What would you like to do?\n1. Attack\n2. Cast spell\n3. Use item\n4. Show inventory")
+        choice = int(input("> "))
+
+        if choice == 1:
+            if player.attack(enemy):
+                enemy.attack(player)
+        elif choice == 2:
+            player.cast_spell(enemy)
+            enemy.attack(player)
+        elif choice == 3:
+            print(f"What item would you like to use?\n{player.inventory}")
+            item = input("> ")
+            player.use_item(item)
+            enemy.attack(player)
+        elif choice == 4:
+            print(f"{player.name}'s inventory: {player.inventory}")
+        else:
+            print("Invalid choice.")
+    
+    if player.hp > 0:
+        print(f"{player.name} has defeated the {enemy.name}!")
+    else:
+        print(f"{player.name} has been defeated by the {enemy.name}.")
+
+if __name__ == "__main__":
+    main()
